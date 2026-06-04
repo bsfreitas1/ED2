@@ -182,7 +182,7 @@ def main():
                 print("\n" + "="*45)
                 print("      MENU DE TESTES      ")
                 print("="*45)
-                print("1. Caso de Referência (Senoide 60 Hz)")
+                print("1. Caso de Referência")
                 print("2. Variação da Frequência ")
                 print("3. Adição de Harmônicas ")
                 print("4. Variação do Número de Pontos ")
