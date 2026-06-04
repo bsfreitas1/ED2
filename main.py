@@ -6,21 +6,20 @@ import matplotlib.pyplot as plt
 from scipy.fft import fft, fftfreq
 
 # --- CONFIGURACOES DE COMUNICACAO ---
-SERIAL_PORT = 'COM8'  # Altere para a porta COM correta do seu C2000
+SERIAL_PORT = 'COM8'  
 BAUD_RATE = 115200
 
-# --- CONFIGURACOES DE HARDWARE (Devem bater estritamente com o seu código C) ---
+# --- CONFIGURACOES DE HARDWARE  ---
 TAM_BUFFER_DAC = 200
 TAM_BUFFER_ADC = 100
 
-# Frequências de acordo com a temporização que foram
-# configuradas no SysConfig / CPU Timer do  CCS.
-FS_DAC = 1250  
+# Frequências de acordo com a temporização que foram configuradas no SysConfig / CPU Timer do  CCS.
+FS_DAC = 10000  
 FS_ADC = 5000  
 
 # --- COMANDOS DO PROTOCOLO ---
-CMD_RECEIVE_ARRAY = 3  # PC envia vetor para o MCU (DAC)
-CMD_SEND_ARRAY    = 4  # PC pede vetor do MCU (ADC)
+CMD_RECEIVE_ARRAY = 3  # PC envia vetor para o DAC
+CMD_SEND_ARRAY    = 4  # PC pede vetor do ADC
 
 
 def enviar_vetor_dac(ser, sinal_uint16):
@@ -28,31 +27,26 @@ def enviar_vetor_dac(ser, sinal_uint16):
     if len(sinal_uint16) != TAM_BUFFER_DAC:
         print(f"Erro: O vetor deve ter exatamente {TAM_BUFFER_DAC} pontos.")
         return False
-    
-    # Monta o cabeçalho: Comando (1 byte) + Tamanho em bytes da carga útil (2 bytes)
-    # Como cada uint16 tem 2 bytes, o tamanho total da carga útil é TAM_BUFFER_DAC * 2
+
     payload_size_bytes = TAM_BUFFER_DAC * 2
     header = struct.pack('<Bh', CMD_RECEIVE_ARRAY, payload_size_bytes)
     
-    # Empacota o vetor de inteiros de 16 bits sem sinal ('H')
     payload = struct.pack(f'<{TAM_BUFFER_DAC}H', *sinal_uint16)
     
-    # Envia o pacote completo (Cabeçalho + Carga útil)
     ser.write(header + payload)
-    time.sleep(0.1)  # Pequena pausa para o MCU processar a recepção
+    time.sleep(0.1)
     print("-> Vetor enviado com sucesso para o DAC do microcontrolador.")
     return True
 
 
 def receber_vetor_adc(ser):
-    """Solicita e recebe os 100 pontos capturados pelo adc_buffer do C2000."""
-    ser.flushInput()  # Limpa o buffer de entrada para garantir dados frescos
+    """Solicita e recebe os 100 pontos capturados pelo adc_buffer"""
+    ser.flushInput()  # Limpa o buffer de entrada 
     
-    # Envia comando de solicitação (Comando + 0 bytes de dados adicionais no cabeçalho)
+    # Envia comando de solicitação
     request = struct.pack('<Bh', CMD_SEND_ARRAY, 0)
     ser.write(request)
-    
-    # Cada uint16 ocupa 2 bytes. Logo, esperamos ler TAM_BUFFER_ADC * 2 bytes
+
     bytes_esperados = TAM_BUFFER_ADC * 2
     bytes_lidos = ser.read(bytes_esperados)
     
@@ -66,7 +60,7 @@ def receber_vetor_adc(ser):
 
 
 def plotar_sinal(dados_adc, titulo_teste):
-    """Processa a FFT e plota os gráficos no domínio do tempo e da frequência."""
+    """Processa a FFT e plota os gráficos no domínio do tempo e da frequência"""
     # Vetor de tempo baseado na taxa de amostragem real do ADC
     tempo = np.arange(TAM_BUFFER_ADC) / FS_ADC
     
@@ -164,7 +158,6 @@ def rodar_teste(ser, opcao):
     sinal_dac = normalizar_para_dac(sinal)
     
     if enviar_vetor_dac(ser, sinal_dac):
-        print("Aguardando estabilização da reprodução...")
         time.sleep(0.5)
         ser.reset_input_buffer()
         print("Coletando dados do ADC...")
