@@ -1,0 +1,32 @@
+[
+   {
+      "directory" : "D:/Repositorio_TSISE/Estudos dirigidos/ED2/CPU1_RAM",
+      "command"   : "clang++ -I\"D:/Repositorio_TSISE/Estudos dirigidos/ED2\" -I\"C:/TI/C2000Ware_26_00_00_00\" -I\"D:/Repositorio_TSISE/Estudos dirigidos/ED2/device\" -I\"C:/TI/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib\" -I\"D:/CSS/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -D_LAUNCHXL_F28379D -DDEBUG -DCPU1 -DRAM -I\"D:/Repositorio_TSISE/Estudos dirigidos/ED2/CPU1_RAM/syscfg\" -DF2837xD=1 -xc",
+      "file"      : "D:/Repositorio_TSISE/Estudos dirigidos/ED2/CPU1_RAM/syscfg/board.c"
+   },
+   {
+      "directory" : "D:/Repositorio_TSISE/Estudos dirigidos/ED2/CPU1_RAM",
+      "command"   : "clang++ -I\"D:/Repositorio_TSISE/Estudos dirigidos/ED2\" -I\"C:/TI/C2000Ware_26_00_00_00\" -I\"D:/Repositorio_TSISE/Estudos dirigidos/ED2/device\" -I\"C:/TI/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib\" -I\"D:/CSS/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -D_LAUNCHXL_F28379D -DDEBUG -DCPU1 -DRAM -I\"D:/Repositorio_TSISE/Estudos dirigidos/ED2/CPU1_RAM/syscfg\" -DF2837xD=1 -xc",
+      "file"      : "D:/Repositorio_TSISE/Estudos dirigidos/ED2/CPU1_RAM/syscfg/c2000ware_libraries.c"
+   },
+   {
+      "directory" : "D:/Repositorio_TSISE/Estudos dirigidos/ED2/CPU1_RAM",
+      "command"   : "clang++ -I\"D:/Repositorio_TSISE/Estudos dirigidos/ED2\" -I\"C:/TI/C2000Ware_26_00_00_00\" -I\"D:/Repositorio_TSISE/Estudos dirigidos/ED2/device\" -I\"C:/TI/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib\" -I\"D:/CSS/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -D_LAUNCHXL_F28379D -DDEBUG -DCPU1 -DRAM -I\"D:/Repositorio_TSISE/Estudos dirigidos/ED2/CPU1_RAM/syscfg\" -DF2837xD=1",
+      "file"      : "D:/Repositorio_TSISE/Estudos dirigidos/ED2/device/F2837xD_CodeStartBranch.asm"
+   },
+   {
+      "directory" : "D:/Repositorio_TSISE/Estudos dirigidos/ED2/CPU1_RAM",
+      "command"   : "clang++ -I\"D:/Repositorio_TSISE/Estudos dirigidos/ED2\" -I\"C:/TI/C2000Ware_26_00_00_00\" -I\"D:/Repositorio_TSISE/Estudos dirigidos/ED2/device\" -I\"C:/TI/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib\" -I\"D:/CSS/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -D_LAUNCHXL_F28379D -DDEBUG -DCPU1 -DRAM -I\"D:/Repositorio_TSISE/Estudos dirigidos/ED2/CPU1_RAM/syscfg\" -DF2837xD=1 -xc",
+      "file"      : "D:/Repositorio_TSISE/Estudos dirigidos/ED2/device/device.c"
+   },
+   {
+      "directory" : "D:/Repositorio_TSISE/Estudos dirigidos/ED2/CPU1_RAM",
+      "command"   : "clang++ -I\"D:/Repositorio_TSISE/Estudos dirigidos/ED2\" -I\"C:/TI/C2000Ware_26_00_00_00\" -I\"D:/Repositorio_TSISE/Estudos dirigidos/ED2/device\" -I\"C:/TI/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib\" -I\"D:/CSS/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -D_LAUNCHXL_F28379D -DDEBUG -DCPU1 -DRAM -I\"D:/Repositorio_TSISE/Estudos dirigidos/ED2/CPU1_RAM/syscfg\" -DF2837xD=1 -xc",
+      "file"      : "D:/Repositorio_TSISE/Estudos dirigidos/ED2/main.c"
+   },
+   {
+      "directory" : "D:/Repositorio_TSISE/Estudos dirigidos/ED2/CPU1_RAM",
+      "command"   : "clang++ -I\"D:/Repositorio_TSISE/Estudos dirigidos/ED2\" -I\"C:/TI/C2000Ware_26_00_00_00\" -I\"D:/Repositorio_TSISE/Estudos dirigidos/ED2/device\" -I\"C:/TI/C2000Ware_26_00_00_00/driverlib/f2837xd/driverlib\" -I\"D:/CSS/ccs/tools/compiler/ti-cgt-c2000_25.11.0.LTS/include\" -D_LAUNCHXL_F28379D -DDEBUG -DCPU1 -DRAM -I\"D:/Repositorio_TSISE/Estudos dirigidos/ED2/CPU1_RAM/syscfg\" -DF2837xD=1 -xc",
+      "file"      : "D:/Repositorio_TSISE/Estudos dirigidos/ED2/scicomm.c"
+   }
+]
